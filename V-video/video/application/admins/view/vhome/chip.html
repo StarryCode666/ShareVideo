@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="SHORTCUT ICON" href="__STATIC__/resource/images/logo.ico">
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link href="__STATIC__/resource/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="__STATIC__/resource/js/html5shiv.min.js"></script>
+    <script src="__STATIC__/resource/js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<div class="">
+    {volist name="data.lists1" id="vo"}
+    <div class="col-lg-4 " style="margin: 18px 0px 0 0px">
+        <div class="thumbnail md">
+            <!--<img src="__STATIC__/resource/uploads/Shawn Mendes - Treat You Better.mp4" alt="...">-->
+            <video id="video1" width="100%" height="100%" style="position: static" controls>
+                {$video='<'.'source src='.'"'.$vo.savepath.'"'.' type='.'"'.'video/mp4'.'"'.' >'}
+            </video>
+            <div class="caption">
+                <h3>{$vo.vd_name}</h3>
+                {$flash_id='<'.'input type='.'"'.'hidden'.'"'.' value='.'"'.$vo.sor_id.'"'.' id='.'"'.'first_id'.'"'.'>'}
+                <p style="font-size: smaller;height: 80px">简介：{$vo.describe}</p>
+                <input type="hidden" id="get_id1" value="{$vo.sor_id}">
+                <p><button class="btn btn-primary btn-sm" role="button" onclick="love1()"><span class="glyphicon glyphicon-heart"></span>/<span class="glyphicon glyphicon-heart-empty"></span></button> <button  class="btn btn-default btn-sm" role="button" ><span class="glyphicon glyphicon-share"></span></button></p>
+            </div>
+        </div>
+    </div>
+    {/volist}
+    {volist name="data.lists2" id="vo"}
+    <div class="col-lg-4 " style="margin: 18px 0px 0 0px">
+        <div class="thumbnail md">
+            <!--<img src="__STATIC__/resource/uploads/Shawn Mendes - Treat You Better.mp4" alt="...">-->
+            <video id="video2" width="100%" height="100%" style="position: static" controls >
+                {$video='<'.'source src='.'"'.$vo.savepath.'"'.' type='.'"'.'video/mp4'.'"'.' >'}
+            </video>
+            <div class="caption">
+                <h3>{$vo.vd_name}</h3>
+                <p style="font-size: smaller;height: 80px">简介：{$vo.describe}</p>
+                <input type="hidden" id="get_id2" value="{$vo.sor_id}">
+                <p><button class="btn btn-primary btn-sm" role="button" onclick="love2()"><span class="glyphicon glyphicon-heart"></span>/<span class="glyphicon glyphicon-heart-empty"></span></button> <button  class="btn btn-default btn-sm" role="button" ><span class="glyphicon glyphicon-share"></span></button></p>
+            </div>
+        </div>
+    </div>
+    {/volist}
+    {volist name="data.lists3" id="vo"}
+    <div class="col-lg-4 " style="margin: 18px 0px 0 0px">
+        <div class="thumbnail md">
+            <!--<img src="__STATIC__/resource/uploads/Shawn Mendes - Treat You Better.mp4" alt="...">-->
+            <video id="video3" width="100%" height="100%" style="position: static" controls>
+                {$video='<'.'source src='.'"'.$vo.savepath.'"'.' type='.'"'.'video/mp4'.'"'.' >'}
+            </video>
+            <div class="caption">
+                <h3>{$vo.vd_name}</h3>
+                <p style="font-size: smaller;height: 80px">简介：{$vo.describe}</p>
+                <input type="hidden" id="get_id3" value="{$vo.sor_id}">
+                <p><button class="btn btn-primary btn-sm" role="button" onclick="love3()"><span class="glyphicon glyphicon-heart"></span>/<span class="glyphicon glyphicon-heart-empty"></span></button> <button  class="btn btn-default btn-sm" role="button" ><span class="glyphicon glyphicon-share"></span></button></p>
+            </div>
+        </div>
+    </div>
+    {/volist}
+
+</div>
+<nav aria-label="..." class="col-md-10 col-md-offset-1">
+    <ul class="pager">
+        <li class="previous"><a href="/admins.php/admins/Vhome/chip?flag=0&l_id={$vo.sor_id}" class="btn" onclick="cutpage()"><span aria-hidden="true">&larr;</span> Older</a></li>
+
+        <li class="next"><a href="/admins.php/admins/Vhome/chip?flag=1&l_id={$vo.sor_id}" class="btn" >Newer <span aria-hidden="true">&rarr;</span></a></li>
+    </ul>
+</nav>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="__STATIC__/resource/js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="__STATIC__/resource/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    var v_id1=$('#get_id1').val();
+    var v_id2=$('#get_id2').val();
+    var v_id3=$('#get_id3').val();
+    function love1() {
+        $.post('/admins.php/admins/Vhome/love',{add:v_id1},function (data) {
+            alert(data.msg);
+        },'json')
+    }
+    function love2() {
+        $.post('/admins.php/admins/Vhome/love',{add:v_id2},function (data) {
+            alert(data.msg);
+        },'json')
+    }
+    function love3() {
+        $.post('/admins.php/admins/Vhome/love',{add:v_id3},function (data) {
+            alert(data.msg);
+        },'json')
+    }
+    $(function () {
+        $('#myTab a:last').tab('show')
+    })
+    $(".md").hover(
+        function () {
+            $(this).css({"box-shadow": "5px 8px 20px #1C3636"});
+        },
+        function () {
+            $(this).css({"box-shadow": "0px 0px 0px #1C3636"})
+        }
+    )
+</script>
+</body>
+</html>

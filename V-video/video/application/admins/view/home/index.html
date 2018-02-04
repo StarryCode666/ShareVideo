@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <meta name="description" content="">
+    <meta name="author" content="starry">
+    <link rel="SHORTCUT ICON" href="__STATIC__/resource/images/logo.ico">
+    <title>欢迎访问V视频</title>
+    <style type="text/css"></style>
+    <!-- Bootstrap -->
+    <link href="__STATIC__/resource/css/bootstrap.min.css" rel="stylesheet">
+    <script src="__STATIC__/resource/js/html5shiv.min.js"></script>
+    <script src="__STATIC__/resource/js/respond.min.js"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-default col-md-10 col-md-offset-1" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">V-video</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a  data-toggle="modal" data-target="#register">注册</a></li>
+                <li><a href="javascript:;">退出</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人中心 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><span class="badge pull-right">42</span>消息</a></li>
+                        <li><a href="#">个人资料</a></li>
+                        <li><a href="#">返回影视主页</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+    <!-- Modal -->
+    <div class="modal fade  col-md-8 col-md-offset-2" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">欢迎注册</h4>
+                </div>
+                <form class="form-horizontal" role="form"  method="post">
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label for="Musername" class="col-sm-2 col-sm-offset-1 control-label">Username</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="username" id="Musername" placeholder="username">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Mpassword" class="col-sm-2 col-sm-offset-1 control-label">Password</label>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control" name="password" id="Mpassword" placeholder="username">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="gidg" class="col-sm-2 col-sm-offset-1 control-label">角色</label>
+                            <div class="col-sm-8" style="margin-top: 7px" id="gidg">
+                                <label><input type="radio" name="gid" id="gid" value="51">管理员</label>
+                                <label><input type="radio" name="gid" id="gid2" value="101">会员</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="truename" class="col-sm-2 col-sm-offset-1 control-label">真实姓名</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="truename" id="truename" placeholder="username">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="status" class="col-sm-2 col-sm-offset-1 control-label">状态:</label>
+                            <div class="col-sm-8" style="margin-top: 7px" id="status">
+                                <label><input type="radio"  name="status" id="status0" value="0">正常</label>
+                                <label><input type="radio"  name="status" id="status1" value="1">禁用</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary col-md-4 col-md-offset-4" onclick="validate2()">保存</button>
+                        <!--<button type="button" class="btn btn-primary col-md-4 col-md-offset-4" onclick="ding()">测试</button>-->
+                    </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <div class="row" style="height: 450px">
+        <div class="col-md-8 col-md-offset-2" >
+            <ul class="nav nav-tabs">
+                <li><a href="#home" data-toggle="tab">管理主页</a></li>
+                <li><a href="#admindb" data-toggle="tab">管理信息</a></li>
+                <li><a href="#messages" data-toggle="tab">后台消息</a></li>
+                <li><a href="#settings" data-toggle="tab">管理设置</a></li>
+            </ul>
+            <div class="tab-content" style="margin-top: 10px">
+                <div class="tab-pane fade in active" id="home">
+                    <iframe style="width: 100%;height: 100% " frameborder="no" border="0" scrolling="yes"
+                            src="/admins.php/admins/Home/Welcome"></iframe>
+                </div>
+                <div class="tab-pane fade" id="admindb">
+                    <iframe style="width: 100%;height: 450px " frameborder="no" border="0" scrolling="yes"
+                            src="/admins.php/admins/Admin/index"></iframe>
+                </div>
+                <div class="tab-pane fade" id="messages">
+                    <iframe style="width: 100%;height: 100% " frameborder="no" border="0" scrolling="yes"
+                            src="/admins.php/admins/Home/Welcome"></iframe>
+                </div>
+                <div class="tab-pane fade" id="settings">
+                    <iframe style="width: 100%;height: 100% " frameborder="no" border="0" scrolling="yes"
+                            src="/admins.php/admins/Home/Welcome"></iframe>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="__STATIC__/resource/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="__STATIC__/resource/js/bootstrap.min.js"></script>
+    <script type="application/x-javascript">
+        $('#test').tooltip('show');
+        $('#myModal').modal({
+            keyboard: false
+        });
+        function ding() {
+            $.post('/admins.php/admins/Admin/test',$('form').serialize(),function (data) {
+                alert(data.msg);
+            },'json')
+        }
+        function validate2(){
+            var password=$.trim($('input[name="password"]').val());
+            var username=$.trim($('input[name="username"]').val());
+            var truename=$.trim($('input[name="truename"]').val());
+            if(username == ''){ alert('用户名不能为空',{icon:2});return}
+            if(password == ''){ alert('密码不能为空',{icon:2});return}
+            if(truename == ''){ alert('真实姓名不能为空',{icon:2});return}
+            $.post('/admins.php/admins/Admin/save',$('form').serialize(),function (res) {
+                alert(res.msg);
+            },'json');}
+    </script>
+
+</body>
+</html>

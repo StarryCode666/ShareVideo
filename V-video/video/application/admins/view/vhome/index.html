@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="SHORTCUT ICON" href="__STATIC__/resource/images/logo.ico">
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link href="__STATIC__/resource/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="__STATIC__/resource/js/html5shiv.min.js"></script>
+    <script src="__STATIC__/resource/js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body >
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header col-md-offset-1">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">V-video</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li class="active"><a class="btn">&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            <li><a class="btn" data-toggle="modal" data-target="#uploadModal">&nbsp;&nbsp;<span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>&nbsp;&nbsp;</a></li>
+            <li><a class="btn" data-toggle="modal" data-target="#searchModal">&nbsp;&nbsp;<span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;</a></li>
+            <li class="dropdown">
+                <a class="btn" class="dropdown-toggle" data-toggle="dropdown"><del>种类 </del><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a class="btn"><del>生活</del></a></li>
+                    <li><a class="btn"><del>电影剪辑</del></a></li>
+                    <li><a class="btn"><del>短视频</del></a></li>
+                    <li><a class="btn"><del>动漫</del></a></li>
+                    <li class="divider"></li>
+                    <li><a class="btn"><del>其他</del></a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right col-md-1">
+            <li><a href="#" >&nbsp;</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" >
+            <li class="dropdown">
+                <a class="btn" class="dropdown-toggle" data-toggle="dropdown">&nbsp;&nbsp;<span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp; <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/admins.php/admins/User/index">我的资料</a></li>
+                    <li><a href="#"><del>浏览记录</del></a></li>
+                    <li><a href="#"><del>贡献</del></a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><del>其他</del></a></li>
+                </ul>
+            </li>
+            <li><a href="#">&nbsp;</a></li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs " style="padding-top: 80px;background-color:#d5d5d5">
+    <li class="col-md-offset-1 active lit"><a href="#home" data-toggle="tab"><span class="glyphicon glyphicon-film" aria-hidden="true"></span>&nbsp;主页</a></li>
+    <li class="lit"><a href="#space" data-toggle="tab"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;动态</a></li>
+    <li class="lit"><a href="#messages" data-toggle="tab"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&nbsp;消息</a></li>
+    <li class="lit"><a href="#love" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>&nbsp;收藏</a></li>
+</ul>
+<div class="tab-content" id="body_sun" style="padding: 20px 10px 20px 10px;background-color: #2aabd2;">
+    <div class="tab-pane fade in active" id="home" style="height: 100%;">
+        <iframe style="height: 100%;width: 100%;box-shadow: 5px 10px 10px #1C3636;border-radius: 10px"
+                src="/admins.php/admins/Vhome/chip" frameborder="no"  scrolling="yes"></iframe>
+    </div>
+
+    <div class="tab-pane fade " id="space" style="height: 100%;">
+        <iframe style="height: 100%;width: 100%;box-shadow: 5px 10px 10px #1C3636;border-radius: 10px"
+                src="/admins.php/admins/Vhome/space" frameborder="no"  scrolling="yes"></iframe>
+    </div>
+    <div class="tab-pane fade" id="messages" style="height: 100%;">
+        <iframe style="height: 100%;width: 100%;box-shadow: 5px 10px 10px #1C3636;border-radius: 10px"
+                src="/admins.php/admins/Vhome/messages" frameborder="no"  scrolling="yes"></iframe>
+    </div>
+    <div class="tab-pane fade" id="love"style="height: 100%;">
+        <iframe style="height: 100%;width: 100%;box-shadow: 5px 10px 10px #1C3636;border-radius: 10px"
+                src="/admins.php/admins/Vhome/colect" frameborder="no"  scrolling="yes"></iframe>
+    </div>
+</div>
+<footer>
+    <P style="text-align: center;font-size: smaller">Designed and built by <strong>Starrick</strong><br>&copy;版权归刘威所有&nbsp;禁止盗版<br>V-viode:0.0版本</P>
+</footer>
+<!-- Modal for uploadvideo -->
+<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title" id="myModalLabel">我的视频&nbsp;<span class="glyphicon glyphicon-send" aria-hidden="true"></span></h3>
+            </div>
+            <form method="post" action="/admins.php/admins/Upload/savefile" enctype="multipart/form-data">
+             <div class="modal-body">
+                 <div class="form-group">
+                     <label for="file" class="control-label">上传文件</label>
+                     <input type="file" class="form-control" id="file" name="upvideo" required="required">
+                 </div>
+                 <div class="form-group">
+                     <label for="vd-name" class="control-label">名称:</label>
+                     <input class="form-control" id="vd-name" name="vd_name" placeholder="影片的名称！ ~^_^~" ></input>
+                 </div>
+                 <div class="form-group">
+                     <label for="about-text" class="control-label">简介:</label>
+                     <textarea class="form-control" id="about-text" name="describe" placeholder="请为你的视频描述一番吧！ ~^_^~"></textarea>
+                 </div>
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+             </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal for search -->
+<div class="modal fade " id="searchModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">查询内容</h4>
+            </div>
+            <div class="modal-body" style="height: 480px">
+                    <iframe style="height: 100%;width: 100%" src="/admins.php/admins/Vhome/search" frameborder="no"  scrolling="yes"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="__STATIC__/resource/js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="__STATIC__/resource/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    resetBodyHeight();
+    function resetBodyHeight() {
+        var height = document.documentElement.clientHeight-200;
+        $('#body_sun').height(height);
+    }
+</script>
+</body>
+</html>

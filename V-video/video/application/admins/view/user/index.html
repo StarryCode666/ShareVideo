@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="SHORTCUT ICON" href="__STATIC__/resource/images/logo.ico">
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link href="__STATIC__/resource/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="__STATIC__/resource/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="__STATIC__/resource/js/bootstrap.min.js"></script>
+
+    <link href="__STATIC__/resource/js/bootstrap-datetimepicker.min.css" rel="stylesheet" >
+    <script src="__STATIC__/resource/js/moment-with-locales.min.js"></script>
+    <script src="__STATIC__/resource/js/bootstrap-datetimepicker.min.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="__STATIC__/resource/js/html5shiv.min.js"></script>
+    <script src="__STATIC__/resource/js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body style="height: 100%">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header col-md-offset-1">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">V-video</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><a class="btn" href="/admins.php/admins/Vhome/index">&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            <li><a class="btn" data-toggle="modal" data-target="#uploadModal">&nbsp;&nbsp;<span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>&nbsp;&nbsp;</a></li>
+            <li><a class="btn" data-toggle="modal" data-target="#searchModal">&nbsp;&nbsp;<span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;</a></li>
+            <li class="dropdown">
+                <a class="btn" class="dropdown-toggle" data-toggle="dropdown"><del>种类 </del><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a class="btn"><del>美剧</del></a></li>
+                    <li><a class="btn"><del>电影</del></a></li>
+                    <li><a class="btn"><del>短视频</del></a></li>
+                    <li><a class="btn"><del>动漫</del></a></li>
+                    <li class="divider"></li>
+                    <li><a class="btn"><del>其他</del></a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right col-md-1">
+            <li><a href="#" >&nbsp;</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" >
+            <li class="dropdown active">
+                <a class="btn " class="dropdown-toggle" data-toggle="dropdown">&nbsp;&nbsp;<span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp; <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">我的资料</a></li>
+                    <li><a href="#"><del>浏览记录</del></a></li>
+                    <li><a href="#"><del>贡献</del></a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><del>其他</del></a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </div><!-- /.navbar-collapse -->
+</nav>
+<!-- some contents here -->
+<div class="row" style="padding: 60px 10px 20px 10px;background-color: #d5d5d5;height: 75%">
+    <div class="col-lg-8 col-lg-offset-2" style="background-color: rgba(194, 255, 215, 0.06)">
+        <div class="panel-group" id="accordion">
+            <!--模块1-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            <h2> <span class="glyphicon glyphicon-list-alt" aria-hidden="true">&nbsp;个人资料</span></h2>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <a data-toggle="modal" data-target="#imgModal" style="margin-left: 60px"><img src="{$data.user_data.0.imgsrc}" alt="..." width="100px" height="100px"  class="img-circle"></a>
+                        <form class="form-inline" method="post" enctype="multipart/form-data" action="/admins.php/admins/User/upimg">
+                            <div class="form-group col-md-2">
+                                <label class="sr-only" for="img">选择图片</label>
+                                <div class="input-group">
+                                    <input type="file" class="form-control" id="img" name="img">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">上传头像</button>
+                        </form>
+                        <table class="table table-striped" style="margin-top: 20px">
+                            <tr>
+                                <td class="col-lg-3">名字：</td><td>{$data.user_data.0.truename}</td>
+                            </tr>
+                            <tr>
+                                <td class="col-lg-3">生日：</td><td>{$data.user_data.0.birthday}</td>
+                            </tr>
+                            <tr>
+                                <td class="col-lg-3">星座：</td><td>{$data.user_data.0.horoscope}</td>
+                            </tr>
+                            <tr>
+                                <td class="col-lg-3">角色：</td>
+                                <td>
+                                    {$data.user_data.0.truename <= 50?'会员':'管理员'}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-lg-3">个人说明：</td>
+                                <td>
+                                    {$data.user_data.0.description}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+                        <!-- Button trigger modal -->
+                        <button class="btn btn-default" data-toggle="modal" data-target="#userdataModal">修改资料</button>
+                    </div>
+                </div>
+            </div>
+            <!--模块2-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                            <h2><span class="glyphicon glyphicon-expand" aria-hidden="true">&nbsp;我的视频</span></h2>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td class="col-lg-4">上传日期</td><td>名字</td><td class="col-lg-2">收藏数量</td>
+                            </tr>
+                            {volist name='data.user_video' id='vo'}
+                            <tr>
+                                <td class="col-lg-2"><span>{:date('Y-m-d H:i:s',$vo.up_time)}</span></td><td>{$vo.vd_name}</td><td class="col-lg-2">{$vo.love_sum}</td>
+                            </tr>
+                            {/volist}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer style="float: end">
+    <P style="text-align: center;font-size: smaller">Designed and built by <strong>Starrick</strong><br>&copy;版权归刘威所有&nbsp;禁止盗版<br>V-viode:0.0版本</P>
+</footer>
+<!-- Modal for uploadvideo-->
+<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title" id="myModalLabel">我的视频&nbsp;<span class="glyphicon glyphicon-send" aria-hidden="true"></span></h3>
+            </div>
+            <form method="post" action="/admins.php/admins/Upload/savefile" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="file" class="control-label">上传文件</label>
+                        <input type="file" class="form-control" id="file" name="upvideo" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="vd-name" class="control-label">名称:</label>
+                        <input class="form-control" id="vd-name" name="vd_name" placeholder="影片的名称！ ~^_^~" ></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="about-text" class="control-label">简介:</label>
+                        <textarea class="form-control" id="about-text" name="describe" placeholder="请为你的视频描述一番吧！ ~^_^~"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    <button type="submit" class="btn btn-primary" onclick="check()"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal for search -->
+<div class="modal fade " id="searchModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">查询内容</h4>
+            </div>
+            <div class="modal-body" style="height: 480px">
+                <iframe style="height: 100%;width: 100%" src="/admins.php/admins/Vhome/search" frameborder="no"  scrolling="yes"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Modal for user_updata-->
+<div class="modal fade" id="userdataModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">修改资料</h4>
+            </div>
+            <form method="post" id="user_data" enctype="multipart/form-data">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="name" class="control-label">名字：</label>
+                    <input class="form-control" id="name" name="truename" value="{$data.user_data.0.truename}">
+                </div>
+                <div class="form-group">
+                    <label for="datetimepicker1" class="control-label">选择日期：</label>
+                    <!--指定 date标记-->
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' class="form-control" name="birthday" value="{$data.user_data.0.birthday}">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name" class="control-label">星座：</label>
+                    <select class="form-control" id="horocope" name="horoscope" value="{$data.user_data.0.horoscope}">
+                        <option>白羊座</option>
+                        <option>金牛座</option>
+                        <option>双子座</option>
+                        <option>巨蟹座</option>
+                        <option>狮子座</option>
+                        <option>处女座</option>
+                        <option>天秤座</option>
+                        <option>天蝎座</option>
+                        <option>射手座</option>
+                        <option>摩羯座</option>
+                        <option>水瓶座</option>
+                        <option>双鱼座</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="control-label">个人说明:</label>
+                    <textarea class="form-control" id="message-text" name="description" >{$data.user_data.0.description}</textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="send()">保&nbsp;存</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#datetimepicker1').datetimepicker({
+            format: 'yyyy-mm-dd',
+            locale: moment.locale('zh-cn')
+        });
+    });
+    function send() {
+        $.post('/admins.php/admins/User/updata',$('#user_data').serialize(),function (res) {
+            alert(res.msg);
+            $('#userdataModal').modal('hide');
+        },'json');
+    }
+</script>
+
+</body>
+</html>

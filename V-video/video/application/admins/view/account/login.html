@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="SHORTCUT ICON" href="__STATIC__/resource/images/logo.ico">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link href="__STATIC__/resource/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="__STATIC__/resource/js/html5shiv.min.js"></script>
+    <script src="__STATIC__/resource/js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body style="background-color: #28a4c9">
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 ">
+        <div class="panel panel-info" style="margin-top: 20%;box-shadow: 5px 5px 20px #444444">
+            <div class="panel-heading">
+                <div class="panel-title"><h3 ><center>欢迎登录</center></h3></div>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" role="form" action="/admins.php/admins/Account/dologin" method="post">
+                    <div class="form-group">
+                        <label for="username" class="col-sm-2 col-sm-offset-1 control-label">Username</label>
+                        <div class="col-sm-8">
+                            <input type="text" required="required" pattern="[A-z1-9]{3,10}" class="form-control" name="username" id="username" placeholder="username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-2 col-sm-offset-1 control-label">Password</label>
+                        <div class="col-sm-8">
+                            <input type="password" required="required" class="form-control" name="password" id="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="imgcode" class="col-sm-2 col-sm-offset-1 control-label">验证码</label>
+                        <div class="col-sm-3">
+                            <input type="text" required="required" class="form-control" name="imgcode" id="imgcode" placeholder="验证码">
+                        </div>
+                        <img style="width: 110px;height: 35px;margin-left: 20px" src="{:captcha_src()}" id="img" onclick="reloadimg()">
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-8">
+                            <button type="submit" class="btn btn-info col-sm-4 col-sm-offset-2" onclick="didi()" >登录</button>
+                            <button type="button" class="btn btn-primary col-sm-4" style="margin-left: 10px" data-toggle="modal" data-target="#register" >注册</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade  col-md-8 col-md-offset-2" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">欢迎注册</h4>
+            </div>
+            <form class="form-horizontal" id="register_form" role="form"  method="post">
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="Musername" class="col-sm-2 col-sm-offset-1 control-label">Username</label>
+                        <div class="col-sm-8">
+                            <input type="text" required="required" class="form-control" name="username" id="Musername" placeholder="username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Mpassword" class="col-sm-2 col-sm-offset-1 control-label">Password</label>
+                        <div class="col-sm-8">
+                            <input type="password" required="required" class="form-control" name="password" id="Mpassword" placeholder="username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="truename" class="col-sm-2 col-sm-offset-1 control-label">真实姓名</label>
+                        <div class="col-sm-8">
+                            <input type="text" required="required" class="form-control" name="truename" id="truename" placeholder="username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="status" class="col-sm-2 col-sm-offset-1 control-label">性别:</label>
+                        <div class="col-sm-8" style="margin-top: 7px" id="status">
+                            <label><input type="radio"  name="sex" id="status0" value="0">女</label>
+                            <label><input type="radio"  name="sex" id="status1" value="1">男</label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary col-md-4 col-md-offset-4" onclick="validate2()">保存</button>
+                <!--<button type="button" class="btn btn-primary col-md-4 col-md-offset-4" onclick="ding()">测试</button>-->
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="__STATIC__/resource/js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="__STATIC__/resource/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $('#username').focus();
+    function reloadimg() {
+        $('#img').attr('src','{:captcha_src()}?rand='+Math.random());
+    }
+    function didi() {
+        var password=$(':password[name=password]').val();
+        var imgcode=$(':text[name=imgcode]').val();
+        var username=$(':text[name=username]').val();
+        if(username == ''){ alert('用户名不能为空');reloadimg();}
+        else if(password == ''){ alert('密码不能为空');reloadimg();}
+        else if(imgcode == ''){ alert('验证码不能为空');reloadimg();}
+    }
+    function validate2(){
+        $.post('/admins.php/admins/Admin/save_user',$('#register_form').serialize(),function (res) {
+            alert(res.msg);
+        },'json');}
+</script>
+</body>
+</html>

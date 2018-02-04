@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="SHORTCUT ICON" href="__STATIC__/resource/images/logo.ico">
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link href="__STATIC__/resource/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="__STATIC__/resource/js/html5shiv.min.js"></script>
+    <script src="__STATIC__/resource/js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<div class="col-md-offset-1">
+    <ul class="media-list col-md-8">
+        {volist name="data.lists" id="vo"}
+        <li class="media" style="margin-top: 20px">
+            <a class="pull-left" href="#">
+                <img class="img-circle" style="width: 80px;height: 80px;margin: 5% 20% 0 0" src="{$vo.imgsrc}" alt="这是一个测试">
+            </a>
+            <div class="media-body">
+                <blockquote>
+                    <h3 class="media-heading">{$vo.vd_name}<em style="font-size: small">&nbsp;&nbsp;由{$vo.truename}上传</em></h3>
+                    <p class="text-info">{$vo.describe}</p>
+                    <small>{$vo.username}发布于： <cite title="Source Time">{:date('Y-m-d H:i:s',$vo.up_time)}</cite></small>
+                </blockquote>
+            </div>
+        </li>
+        {/volist}
+    </ul>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="__STATIC__/resource/js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="__STATIC__/resource/js/bootstrap.min.js"></script>
+
+</body>
+</html>
